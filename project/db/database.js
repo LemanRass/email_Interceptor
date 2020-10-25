@@ -21,14 +21,14 @@ function init() {
 
 function save() {
     return new Promise((resolve, reject) => {
-        fs.writeFileSync(DATABASE_PATH, JSON.stringify(messages));
+        fs.writeFileSync(DATABASE_PATH, JSON.stringify(messages, null, 2));
         resolve();
     });
 }
 
 function add(message) {
     messages.push(message);
-    console.log(`[Database -> add] ${messages.join('\r\n')}`);
+    //console.log(`[Database -> add] ${messages.join('\r\n')}`);
     return save();
 }
 
