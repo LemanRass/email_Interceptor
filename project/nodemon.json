@@ -1,0 +1,9 @@
+{
+    "verbose": false,
+    "restartable": "rs",
+    "colours": true,
+    "ignore": [
+        "dist/",
+        "db/*.json"
+    ]
+  }

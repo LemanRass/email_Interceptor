@@ -6,12 +6,16 @@ const cors = require('cors');
 //Web server
 const express = require("express");
 const app = express();
-app.set('view engine', 'html');
+app.set('view engine', 'ejs');
 
 var corsOptions = {
     origin: 'https://comaxinvest.com',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
+
+app.get('/', function (req, res) {
+    res.render("index.ejs", {});
+});
 
 app.get("/signals", cors(corsOptions), function (request, response) {
 

@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "cors": "^2.8.5",
+    "ejs": "^3.1.5",
     "express": "^4.17.1",
     "googleapis": "^61.0.0",
     "uuid": "^8.3.1"
@@ -17,7 +18,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
-    "start": "npm run build && node dist/index.js"
+    "start": "npm run build && nodemon dist/index.js"
   },
   "repository": {
     "type": "git",
