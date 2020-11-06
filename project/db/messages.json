@@ -1120,5 +1120,457 @@
         "level": "1.17364"
       }
     }
+  },
+  {
+    "id": "1759e2de19b6990c",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 15:30:07 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Golden GBPUSD",
+    "body": "",
+    "signal": {
+      "type": "Opening",
+      "strategy": "Comax Golden GBPUSD",
+      "market": "GBP/USD",
+      "timestamp": "2020-11-06T15:30:04",
+      "direction": "Sell",
+      "price": "1.31358",
+      "quantity": "0.1 CFD",
+      "stop": {
+        "level": "1.31458",
+        "trailing": "51.0 pips"
+      },
+      "limit": {
+        "level": "1.30358"
+      }
+    }
+  },
+  {
+    "id": "1759e2ddeacdf89f",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 15:30:06 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Algo Bot",
+    "body": "",
+    "signal": {
+      "type": "Opening",
+      "strategy": "Comax Algo Bot",
+      "market": "XAU/USD(GOLD)",
+      "timestamp": "2020-11-06T15:30:04",
+      "direction": "Sell",
+      "price": "1946.120",
+      "quantity": "1.0 CFD",
+      "stop": {
+        "level": "1947.120",
+        "trailing": "0.0 pips"
+      },
+      "limit": {
+        "level": "1941.120"
+      }
+    }
+  },
+  {
+    "id": "1759e29562469d67",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 15:25:09 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Algo Bot",
+    "body": "",
+    "signal": {
+      "type": "Closing",
+      "strategy": "Comax Algo Bot",
+      "market": "XAU/USD(GOLD)",
+      "timestamp": "2020-11-06T15:25:08",
+      "direction": "Buy",
+      "price": "1943.300",
+      "quantity": "1.0 CFD"
+    }
+  },
+  {
+    "id": "1759e294c18d1a06",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 15:25:06 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Algo Bot",
+    "body": "",
+    "signal": {
+      "type": "Opening",
+      "strategy": "Comax Algo Bot",
+      "market": "XAU/USD(GOLD)",
+      "timestamp": "2020-11-06T15:25:05",
+      "direction": "Sell",
+      "price": "1943.300",
+      "quantity": "1.0 CFD",
+      "stop": {
+        "level": "1944.300",
+        "trailing": "0.0 pips"
+      },
+      "limit": {
+        "level": "1938.300"
+      }
+    }
+  },
+  {
+    "id": "1759e2654c60587e",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 15:21:52 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Algo Bot",
+    "body": "",
+    "signal": {
+      "type": "Closing",
+      "strategy": "Comax Algo Bot",
+      "market": "XAU/USD(GOLD)",
+      "timestamp": "2020-11-06T15:21:51",
+      "direction": "Buy",
+      "price": "1943.060",
+      "quantity": "1.0 CFD"
+    }
+  },
+  {
+    "id": "1759e24baaa6b7b4",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 15:20:07 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Algo Bot",
+    "body": "",
+    "signal": {
+      "type": "Opening",
+      "strategy": "Comax Algo Bot",
+      "market": "XAU/USD(GOLD)",
+      "timestamp": "2020-11-06T15:20:04",
+      "direction": "Sell",
+      "price": "1943.060",
+      "quantity": "1.0 CFD",
+      "stop": {
+        "level": "1944.060",
+        "trailing": "0.0 pips"
+      },
+      "limit": {
+        "level": "1938.060"
+      }
+    }
+  },
+  {
+    "id": "1759e24b9a05a9f9",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 15:20:06 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Driver",
+    "body": "",
+    "signal": {
+      "type": "Opening",
+      "strategy": "Comax Driver",
+      "market": "EUR/USD",
+      "timestamp": "2020-11-06T15:20:04",
+      "direction": "Sell",
+      "price": "1.18700",
+      "quantity": "0.05 CFD",
+      "stop": {
+        "level": "1.18850",
+        "trailing": "15.0 pips"
+      },
+      "limit": {
+        "level": "1.18200"
+      }
+    }
+  },
+  {
+    "id": "1759e22167f32a60",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 15:17:14 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Golden GBPUSD",
+    "body": "",
+    "signal": {
+      "type": "Closing",
+      "strategy": "Comax Golden GBPUSD",
+      "market": "GBP/USD",
+      "timestamp": "2020-11-06T15:17:13",
+      "direction": "Buy",
+      "price": "1.31136",
+      "quantity": "0.1 CFD"
+    }
+  },
+  {
+    "id": "1759e20ba6adca44",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 15:15:45 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Algo Bot",
+    "body": "",
+    "signal": {
+      "type": "Closing",
+      "strategy": "Comax Algo Bot",
+      "market": "XAU/USD(GOLD)",
+      "timestamp": "2020-11-06T15:15:44",
+      "direction": "Buy",
+      "price": "1943.250",
+      "quantity": "1.0 CFD"
+    }
+  },
+  {
+    "id": "1759e20265c41aad",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 15:15:07 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Algo Bot",
+    "body": "",
+    "signal": {
+      "type": "Opening",
+      "strategy": "Comax Algo Bot",
+      "market": "XAU/USD(GOLD)",
+      "timestamp": "2020-11-06T15:15:04",
+      "direction": "Sell",
+      "price": "1943.250",
+      "quantity": "1.0 CFD",
+      "stop": {
+        "level": "1944.250",
+        "trailing": "0.0 pips"
+      },
+      "limit": {
+        "level": "1938.250"
+      }
+    }
+  },
+  {
+    "id": "1759e2023a2709cb",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 15:15:06 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Golden GBPUSD",
+    "body": "",
+    "signal": {
+      "type": "Opening",
+      "strategy": "Comax Golden GBPUSD",
+      "market": "GBP/USD",
+      "timestamp": "2020-11-06T15:15:04",
+      "direction": "Sell",
+      "price": "1.31136",
+      "quantity": "0.1 CFD",
+      "stop": {
+        "level": "1.31236",
+        "trailing": "51.0 pips"
+      },
+      "limit": {
+        "level": "1.30136"
+      }
+    }
+  },
+  {
+    "id": "1759e1bb172498ea",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 15:10:14 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Algo Bot",
+    "body": "",
+    "signal": {
+      "type": "Closing",
+      "strategy": "Comax Algo Bot",
+      "market": "XAU/USD(GOLD)",
+      "timestamp": "2020-11-06T15:10:14",
+      "direction": "Buy",
+      "price": "1947.450",
+      "quantity": "1.0 CFD"
+    }
+  },
+  {
+    "id": "1759e1b9283a3f5d",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 15:10:06 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Algo Bot",
+    "body": "",
+    "signal": {
+      "type": "Opening",
+      "strategy": "Comax Algo Bot",
+      "market": "XAU/USD(GOLD)",
+      "timestamp": "2020-11-06T15:10:04",
+      "direction": "Sell",
+      "price": "1947.450",
+      "quantity": "1.0 CFD",
+      "stop": {
+        "level": "1948.450",
+        "trailing": "0.0 pips"
+      },
+      "limit": {
+        "level": "1942.450"
+      }
+    }
+  },
+  {
+    "id": "1759e171877cafe4",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 15:05:13 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Algo Bot",
+    "body": "",
+    "signal": {
+      "type": "Closing",
+      "strategy": "Comax Algo Bot",
+      "market": "XAU/USD(GOLD)",
+      "timestamp": "2020-11-06T15:05:12",
+      "direction": "Buy",
+      "price": "1943.600",
+      "quantity": "1.0 CFD"
+    }
+  },
+  {
+    "id": "1759e16fd39ccf74",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 15:05:06 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Algo Bot",
+    "body": "",
+    "signal": {
+      "type": "Opening",
+      "strategy": "Comax Algo Bot",
+      "market": "XAU/USD(GOLD)",
+      "timestamp": "2020-11-06T15:05:04",
+      "direction": "Sell",
+      "price": "1943.600",
+      "quantity": "1.0 CFD",
+      "stop": {
+        "level": "1944.600",
+        "trailing": "0.0 pips"
+      },
+      "limit": {
+        "level": "1938.600"
+      }
+    }
+  },
+  {
+    "id": "1759e130057e6d7f",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 15:00:45 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Golden GBPUSD",
+    "body": "",
+    "signal": {
+      "type": "Closing",
+      "strategy": "Comax Golden GBPUSD",
+      "market": "GBP/USD",
+      "timestamp": "2020-11-06T15:00:44",
+      "direction": "Buy",
+      "price": "1.31122",
+      "quantity": "0.1 CFD"
+    }
+  },
+  {
+    "id": "1759e12a9ea77462",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 15:00:22 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Algo Bot",
+    "body": "",
+    "signal": {
+      "type": "Closing",
+      "strategy": "Comax Algo Bot",
+      "market": "XAU/USD(GOLD)",
+      "timestamp": "2020-11-06T15:00:21",
+      "direction": "Buy",
+      "price": "1942.240",
+      "quantity": "1.0 CFD"
+    }
+  },
+  {
+    "id": "1759e126eb341b6e",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 15:00:07 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Golden GBPUSD",
+    "body": "",
+    "signal": {
+      "type": "Opening",
+      "strategy": "Comax Golden GBPUSD",
+      "market": "GBP/USD",
+      "timestamp": "2020-11-06T15:00:04",
+      "direction": "Sell",
+      "price": "1.31122",
+      "quantity": "0.1 CFD",
+      "stop": {
+        "level": "1.31222",
+        "trailing": "51.0 pips"
+      },
+      "limit": {
+        "level": "1.30122"
+      }
+    }
+  },
+  {
+    "id": "1759e126a3047266",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 15:00:06 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Algo Bot",
+    "body": "",
+    "signal": {
+      "type": "Opening",
+      "strategy": "Comax Algo Bot",
+      "market": "XAU/USD(GOLD)",
+      "timestamp": "2020-11-06T15:00:04",
+      "direction": "Sell",
+      "price": "1942.240",
+      "quantity": "1.0 CFD",
+      "stop": {
+        "level": "1943.240",
+        "trailing": "0.0 pips"
+      },
+      "limit": {
+        "level": "1937.240"
+      }
+    }
+  },
+  {
+    "id": "1759e0df50db4ded",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 14:55:14 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Algo Bot",
+    "body": "",
+    "signal": {
+      "type": "Closing",
+      "strategy": "Comax Algo Bot",
+      "market": "XAU/USD(GOLD)",
+      "timestamp": "2020-11-06T14:55:14",
+      "direction": "Buy",
+      "price": "1945.400",
+      "quantity": "1.0 CFD"
+    }
+  },
+  {
+    "id": "1759e348ab8c082e",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 15:37:24 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Algo Bot",
+    "body": "",
+    "signal": {
+      "type": "Closing",
+      "strategy": "Comax Algo Bot",
+      "market": "XAU/USD(GOLD)",
+      "timestamp": "2020-11-06T15:37:23",
+      "direction": "Buy",
+      "price": "1946.120",
+      "quantity": "1.0 CFD"
+    }
+  },
+  {
+    "id": "1759e379b6ce3811",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 15:40:44 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Algo Bot",
+    "body": "",
+    "signal": {
+      "type": "Closing",
+      "strategy": "Comax Algo Bot",
+      "market": "XAU/USD(GOLD)",
+      "timestamp": "2020-11-06T15:40:43",
+      "direction": "Buy",
+      "price": "1946.160",
+      "quantity": "1.0 CFD"
+    }
+  },
+  {
+    "id": "1759e370899afab8",
+    "from": "noreply@siliconmarkets.ai",
+    "timestamp": "Fri, 06 Nov 2020 15:40:07 +0000 (UTC)",
+    "subject": "Signal Trade Confirmation for strategy- Comax Algo Bot",
+    "body": "",
+    "signal": {
+      "type": "Opening",
+      "strategy": "Comax Algo Bot",
+      "market": "XAU/USD(GOLD)",
+      "timestamp": "2020-11-06T15:40:04",
+      "direction": "Sell",
+      "price": "1946.160",
+      "quantity": "1.0 CFD",
+      "stop": {
+        "level": "1947.160",
+        "trailing": "0.0 pips"
+      },
+      "limit": {
+        "level": "1941.160"
+      }
+    }
   }
 ]

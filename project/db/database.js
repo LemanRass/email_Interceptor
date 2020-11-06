@@ -37,7 +37,7 @@ function exists(id) {
 }
 
 function get(count) {
-    return messages.slice(0, count);
+    return messages.slice(messages.length - count, messages.length).reverse();
 }
 
 module.exports = {

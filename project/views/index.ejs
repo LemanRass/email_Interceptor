@@ -3,8 +3,113 @@
     <meta http-equiv="utf-8">
     <title>Trading signals</title>
     <style rel="stylesheet" href="./css/style.css"></style>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    
+    $(document).ready(function() {
+        $('#button-signals-load').click(function() {
+            let count = $("#input-signals-count").val();
+            loadSignals(count);
+        });
+    });
+
+
+    function loadSignals(count) {
+        $.ajax({
+           url: '/signals',
+           method: 'GET',
+           data: {
+                "count": count
+           },
+           dataType: 'JSON',
+           success: function(data) {
+                $("#signals").html("");
+
+               for(let i = 0; i < data.length; i++) {
+                   addRow(data[i].signal);
+               }
+           },
+           error: function(xhr, status, err) {
+                console.error(xhr);
+                console.error(status);
+                console.error(err);
+           }
+        });
+    }
+
+
+    function addRow(data) {
+        let html = `<tr align="center">
+                        <td>${data.type}</td>
+                        <td>${data.strategy}</td>
+                        <td>${data.market}</td>
+                        <td>${data.direction}</td>
+                        <td>${data.price}</td>
+                        <td>${data.quantity}</td>
+                        <td>${data.timestamp.replace("T", " ")}</td>`;
+
+        if(data.hasOwnProperty("stop")) {
+            html += `<td>
+                        <table border="1">
+                            <tr>
+                                <td align="center">STOP</td>
+                                <td align="center">LIMIT</td>
+                            </tr>
+                            <tr valign="top">
+                                <td>
+                                    <table border="1">
+                                        <tr>
+                                            <td>Level</td>
+                                            <td>Trailing</td>
+                                        </tr>
+                                        <tr>
+                                            <td>${data.stop.level}</td>
+                                            <td>${data.stop.trailing}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table border="1">
+                                        <tr>
+                                            <td>Level</td>
+                                            <td>${data.limit.level}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>`;
+            } else {
+                html += `<td></td>`;
+            }
+
+
+        html += `</tr>`; 
+        
+        $("#signals").append(html);
+    }
+    </script>
 </head>
 <body>
-Hello World!
+<input type="number" id="input-signals-count">
+<button id="button-signals-load">Load</button>
+
+<table border="1">
+    <thead>
+        <tr align="center">
+            <td>Type</td>
+            <td>Strategy</td>
+            <td>Market</td>
+            <td>Direction</td>
+            <td>Price</td>
+            <td>Quantity</td>
+            <td>Timestamp</td>
+            <td>Details</td>
+        </tr>
+    </thead>
+    <tbody id="signals">
+        
+    </tbody>
+</table>
 </body>
 </html>
