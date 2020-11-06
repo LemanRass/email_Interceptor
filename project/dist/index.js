@@ -9,15 +9,15 @@ const app = express();
 app.set('view engine', 'html');
 
 var corsOptions = {
-  origin: 'https://comaxinvest.com',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
+    origin: 'https://comaxinvest.com',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
 
-app.get("/signals", cors(corsOptions), function(request, response){
+app.get("/signals", cors(corsOptions), function (request, response) {
 
-    let count  = parseInt(request.query.count);
+    let count = parseInt(request.query.count);
 
-    if(Number.isInteger(count)) {
+    if (Number.isInteger(count)) {
         response.json(database.get(count));
     } else {
         response.send("<b>count</b> is a required parameter.");
@@ -25,17 +25,12 @@ app.get("/signals", cors(corsOptions), function(request, response){
 });
 app.listen(80);
 
-
-
-
 //Constants
 const EMAIL_LOCAL_ADDRESS = "me";
-const EMAIL_SEARCH_TAGS = "from:noreply@siliconmarkets.ai";//"from:nsmakhnovetska@gmail.com";
+const EMAIL_SEARCH_TAGS = "from:noreply@siliconmarkets.ai"; //"from:nsmakhnovetska@gmail.com";
 const EMAIL_RESULTS_LIMIT = 20;
 
 const UPDATE_LOOP_DELAY_MS = 5000;
-
-
 
 async function Start() {
 
@@ -44,29 +39,25 @@ async function Start() {
 
     //Init gmail service
     await gmail.init();
-    
+
     //Start loop
     Update();
 }
-
-
-
 
 async function Update() {
 
     let request = await gmail.listMessages(EMAIL_LOCAL_ADDRESS, EMAIL_RESULTS_LIMIT, EMAIL_SEARCH_TAGS);
     let messages = request.data.messages;
 
-    if(messages && messages.length > 0)
-    {
-        for(let i = 0; i < messages.length; i++) {
+    if (messages && messages.length > 0) {
+        for (let i = 0; i < messages.length; i++) {
 
             //Get message object
             let message = await gmail.getMessage(EMAIL_LOCAL_ADDRESS, messages[i].id).catch(err => console.error(err));
             //Parse message object
             let parsedMessage = parseMessage(message);
 
-            if(database.exists(parsedMessage.id)) {
+            if (database.exists(parsedMessage.id)) {
                 continue;
             }
 
@@ -85,7 +76,6 @@ async function Update() {
 }
 
 Start();
-
 
 function toBase64(str) {
     return Buffer.from(str).toString('base64');
@@ -116,62 +106,61 @@ function parseMessage(json) {
 }
 
 function parseMessageBody(body) {
-    
+
     let part = body.toString().match(/(<layout label=("|')Section 5("|')>)(\n|.+).(<\/layout>)/gs);
     let matches = part.toString().match(/(?<=<multiline>).+(?=<\/multiline>)/g);
 
     let result = {};
 
-    for(let i = 0; i < matches.length; i++) {
-        
+    for (let i = 0; i < matches.length; i++) {
+
         //Check if account
-        if(matches[i].indexOf("Account") >= 0)
-            continue;
+        if (matches[i].indexOf("Account") >= 0) continue;
 
         //Check if title
-        if(matches[i].indexOf("Trade Confirmation") >= 0) {
+        if (matches[i].indexOf("Trade Confirmation") >= 0) {
             result.type = matches[i].split(" ")[0];
             continue;
         }
 
         //Check if strategy name
-        if(matches[i].indexOf("Strategy Name") >= 0) {
+        if (matches[i].indexOf("Strategy Name") >= 0) {
             result.strategy = matches[++i];
             continue;
         }
 
         //Check if market
-        if(matches[i].indexOf("Market") >= 0) {
+        if (matches[i].indexOf("Market") >= 0) {
             result.market = matches[++i];
             continue;
         }
 
         //Datetime
-        if(matches[i].indexOf("Date/Time (UTC)") >= 0) {
+        if (matches[i].indexOf("Date/Time (UTC)") >= 0) {
             result.timestamp = matches[++i];
             continue;
         }
 
         //Direction
-        if(matches[i].indexOf("Direction") >= 0) {
+        if (matches[i].indexOf("Direction") >= 0) {
             result.direction = matches[++i];
             continue;
         }
 
         //Price
-        if(matches[i].indexOf("Price") >= 0) {
+        if (matches[i].indexOf("Price") >= 0) {
             result.price = matches[++i];
             continue;
         }
 
         //Quantity
-        if(matches[i].indexOf("Quantity") >= 0) {
+        if (matches[i].indexOf("Quantity") >= 0) {
             result.quantity = matches[++i];
             continue;
         }
 
         //STOP
-        if(matches[i].indexOf("Type STOP") >= 0) {
+        if (matches[i].indexOf("Type STOP") >= 0) {
             result.stop = {};
             i += 2;
             result.stop.level = matches[i];
@@ -181,7 +170,7 @@ function parseMessageBody(body) {
         }
 
         //LIMIT
-        if(matches[i].indexOf("Type LIMIT") >= 0) {
+        if (matches[i].indexOf("Type LIMIT") >= 0) {
             result.limit = {};
             i += 2;
             result.limit.level = matches[i];
