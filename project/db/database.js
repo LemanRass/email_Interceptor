@@ -37,7 +37,7 @@ function exists(id) {
 }
 
 function get(count) {
-    return messages.slice(messages.length - count, messages.length).reverse();
+    return messages.sort((a, b) => a.signal.unix > b.signal.unix ? 1 : -1).slice(messages.length - count, messages.length).reverse();
 }
 
 module.exports = {

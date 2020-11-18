@@ -2,7 +2,7 @@ const fs = require('fs');
 const readline = require('readline');
 const {google} = require('googleapis');
 
-const SCOPES = ['https://www.googleapis.com/auth/gmail.readonly'];
+const SCOPES = ['https://mail.google.com/'];
 const TOKEN_PATH = __dirname + '/token.json';
 const CREDENTIALS_PATH = __dirname + "/credentials.json";
 
@@ -109,6 +109,26 @@ function listMessages(userId, maxResults, q) {
   });
 }
 
+function makeReadMessage(userId, messageId) {
+  return new Promise((resolve, reject) => {
+    gmail.users.messages.modify({
+      "userId": userId,
+      "id": messageId,
+      "resource": {
+        'addLabelIds':[],
+        'removeLabelIds': ['UNREAD']
+      },
+      function(err) {
+        if (err) {
+            error('Failed to mark email as read! Error: '+err);
+            return;
+        }
+        log('Successfully marked email as read', emailId);
+    }
+    })
+  });
+}
+
 /*
  * @userId: 'me'
  * @id: '1753a65f161f130d'
@@ -129,7 +149,8 @@ function getMessage(userId, id) {
 module.exports = {
   init,
   listMessages,
-  getMessage
+  getMessage,
+  makeReadMessage
 }
 
 

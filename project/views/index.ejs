@@ -6,10 +6,19 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script type="text/javascript">
     
+    let signalsLimit = 10;
+
     $(document).ready(function() {
+
+        setInterval(() => {
+            loadSignals(signalsLimit);
+        }, 60000);
+        loadSignals(signalsLimit);
+
         $('#button-signals-load').click(function() {
             let count = $("#input-signals-count").val();
-            loadSignals(count);
+            signalsLimit = count;
+            loadSignals(signalsLimit);
         });
     });
 
@@ -39,50 +48,85 @@
 
 
     function addRow(data) {
-        let html = `<tr align="center">
-                        <td>${data.type}</td>
-                        <td>${data.strategy}</td>
-                        <td>${data.market}</td>
-                        <td>${data.direction}</td>
-                        <td>${data.price}</td>
-                        <td>${data.quantity}</td>
-                        <td>${data.timestamp.replace("T", " ")}</td>`;
+	
+		let timestamp = new Date(data.timestamp);
+		var options = {
+		  year: 'numeric',
+		  month: 'long',
+		  day: 'numeric',
+		  timezone: 'UTC',
+		  hour: 'numeric',
+		  minute: 'numeric',
+		  second: 'numeric'
+		};
+	
+	
+        let html = `<tr align="center" style="background-color: #FAFAFA;">
+						<td style="padding: 5px 10px;">${timestamp.toLocaleString("en-US", options)}</td>
+                        <td style="padding: 5px 10px;">${data.type}</td>
+                        <td style="padding: 5px 10px;">${data.strategy}</td>
+                        <td style="padding: 5px 10px;">${data.market}</td>
+                        <td style="padding: 5px 10px;">${data.direction}</td>
+                        <td style="padding: 5px 10px;">${data.price}</td>
+                        <td style="padding: 5px 10px;">${data.quantity}</td>`;
 
-        if(data.hasOwnProperty("stop")) {
-            html += `<td>
-                        <table border="1">
-                            <tr>
-                                <td align="center">STOP</td>
-                                <td align="center">LIMIT</td>
-                            </tr>
-                            <tr valign="top">
-                                <td>
-                                    <table border="1">
-                                        <tr>
-                                            <td>Level</td>
-                                            <td>Trailing</td>
-                                        </tr>
-                                        <tr>
-                                            <td>${data.stop.level}</td>
-                                            <td>${data.stop.trailing}</td>
-                                        </tr>
-                                    </table>
-                                </td>
-                                <td>
-                                    <table border="1">
-                                        <tr>
-                                            <td>Level</td>
-                                            <td>${data.limit.level}</td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>`;
-            } else {
-                html += `<td></td>`;
-            }
 
+        if(data.type == "Closing") {
+            html += `
+                <td>
+                    <table width="100%" border="0">
+                        <tr>
+                            <td><b>Opening price:</b></td>
+                            <td>${data.openingPrice}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Profit/Loss:</b></td>
+                            <td>${data.profitLoss}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Strategy P/L:</b></td>
+                            <td>${data.totalStrategyPL}</td>
+                        </tr>
+                    </table>
+                </td>
+            `;
+        } else {
+
+            if(data.hasOwnProperty("stop")) {
+                html += `<td>
+                            <table border="0" width="100%">
+                                <tr>
+                                    <td align="center" style="background-color: #e53935; color: white;">STOP</td>
+                                    <td align="center" style="background-color: #43A047; color: white;">LIMIT</td>
+                                </tr>
+                                <tr valign="top">
+                                    <td>
+                                        <table border="0" width="100%">
+                                            <tr>
+                                                <td><b>Level</b></td>
+                                                <td>${data.stop.level}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Trailing</b></td>
+                                                <td>${data.stop.trailing}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border="0" width="100%">
+                                            <tr>
+                                                <td><b>Level</b></td>
+                                                <td>${data.limit.level}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>`;
+                } else {
+                    html += `<td></td>`;
+                }
+        }
 
         html += `</tr>`; 
         
@@ -90,21 +134,23 @@
     }
     </script>
 </head>
-<body>
-<input type="number" id="input-signals-count">
-<button id="button-signals-load">Load</button>
-
-<table border="1">
+<body style="background-color: #212121;">
+<p style="color: white;">Signals count per page:</p>
+<input type="number" id="input-signals-count" value="10">
+<button id="button-signals-load">Accept</button>
+<br>
+<br>
+<table border="0" cellspacing="1" cellpadding="2">
     <thead>
-        <tr align="center">
-            <td>Type</td>
-            <td>Strategy</td>
-            <td>Market</td>
-            <td>Direction</td>
-            <td>Price</td>
-            <td>Quantity</td>
-            <td>Timestamp</td>
-            <td>Details</td>
+        <tr align="center" style="background-color: #FB8C00; font-weight: bold; height: 50px;">
+			<td style="padding: 5px 10px;">Timestamp</td>
+            <td style="padding: 5px 10px;">Type</td>
+            <td style="padding: 5px 10px;">Strategy</td>
+            <td style="padding: 5px 10px;">Market</td>
+            <td style="padding: 5px 10px;">Direction</td>
+            <td style="padding: 5px 10px;">Price</td>
+            <td style="padding: 5px 10px;">Quantity</td>
+            <td style="padding: 5px 10px;">Details</td>
         </tr>
     </thead>
     <tbody id="signals">

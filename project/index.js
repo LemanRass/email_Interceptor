@@ -35,7 +35,7 @@ app.listen(80);
 //Constants
 const EMAIL_LOCAL_ADDRESS = "me";
 const EMAIL_SEARCH_TAGS = "from:noreply@siliconmarkets.ai";//"from:nsmakhnovetska@gmail.com";
-const EMAIL_RESULTS_LIMIT = 20;
+const EMAIL_RESULTS_LIMIT = 10;
 
 const UPDATE_LOOP_DELAY_MS = 5000;
 
@@ -67,6 +67,10 @@ async function Update() {
 
             //Get message object
             let message = await gmail.getMessage(EMAIL_LOCAL_ADDRESS, messages[i].id).catch(err => console.error(err));
+
+            //Mark as read
+            //await gmail.makeReadMessage(EMAIL_LOCAL_ADDRESS, messages[i].id).catch(err => console.error(err));
+
             //Parse message object
             let parsedMessage = parseMessage(message);
 
@@ -75,12 +79,19 @@ async function Update() {
             }
 
             //Parse signal
-            let signal = parseMessageBody(parsedMessage.body);
-            parsedMessage.body = "";
-            parsedMessage.signal = signal;
+            try {
+                let signal = parseMessageBody(parsedMessage.body);
+                delete parsedMessage.body;
 
-            //Add message to DB
-            database.add(parsedMessage);
+                //console.log(signal, "\n\n\n");
+
+                parsedMessage.signal = signal;
+
+                //Add message to DB
+                database.add(parsedMessage);
+            } catch(err) {
+                console.log(err);
+            }
         }
     }
 
@@ -153,12 +164,18 @@ function parseMessageBody(body) {
         //Datetime
         if(matches[i].indexOf("Date/Time (UTC)") >= 0) {
             result.timestamp = matches[++i];
+            result.unix = Math.round(new Date(result.timestamp).getTime()/1000);
             continue;
         }
 
         //Direction
         if(matches[i].indexOf("Direction") >= 0) {
             result.direction = matches[++i];
+            continue;
+        }
+
+        if(matches[i].includes("Opening Price")) {
+            result.openingPrice =  matches[++i];
             continue;
         }
 
@@ -171,6 +188,27 @@ function parseMessageBody(body) {
         //Quantity
         if(matches[i].indexOf("Quantity") >= 0) {
             result.quantity = matches[++i];
+            continue;
+        }
+
+
+        
+
+        //Opening price
+        //if(matches[i].indexOf("Opening Price") >= 0) {
+        //    result.openingPrice = matches[++i];
+        //    continue;
+        //}
+
+        //Profit/loss
+        if(matches[i].indexOf("Profit/Loss") >= 0) {
+            result.profitLoss = matches[++i];
+            continue;
+        }
+
+        //Total strategy profit/loss
+        if(matches[i].indexOf("Total Strategy P/L") >= 0) {
+            result.totalStrategyPL = matches[++i];
             continue;
         }
 
